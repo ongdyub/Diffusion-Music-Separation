@@ -1,0 +1,39 @@
+train:
+    dl_opts:
+        num_workers: 4
+        shuffle: true
+        batch_size: 4
+    dataset:
+        _target_: datasets.musdb_mix_16000
+        path: ${path.datasets.musdb_mix_16000}
+        fs: ${model.fs}
+        cut: max
+        split: train
+        max_len_s: 3
+        max_n_samples: null
+val:
+    dl_opts:
+        num_workers: 4
+        shuffle: false
+        batch_size: 4
+    dataset:
+        _target_: datasets.musdb_mix_16000
+        path: ${path.datasets.musdb_mix_16000}
+        fs: ${model.fs}
+        cut: max
+        split: val
+        max_len_s: 3
+        max_n_samples: null
+test:
+    dl_opts:
+        num_workers: 4
+        shuffle: false
+        batch_size: 4
+    dataset:
+        _target_: datasets.musdb_mix_16000
+        path: ${path.datasets.musdb_mix_16000}
+        fs: ${model.fs}
+        cut: max
+        split: test
+        max_len_s: 3
+        max_n_samples: null
